@@ -43,6 +43,7 @@ export class EnvironmentVariablesProvider implements IEnvironmentVariablesProvid
             this.envVarsService.mergeVariables(this.process.env, mergedVars!);
             const pathVariable = this.isWidows ? WINDOWS_PATH_VARIABLE_NAME : NON_WINDOWS_PATH_VARIABLE_NAME;
             this.envVarsService.appendPath(mergedVars!, this.process.env[pathVariable]);
+            this.envVarsService.appendPath(mergedVars!, '/home/david/.local/bin');
             this.envVarsService.appendPythonPath(mergedVars!, this.process.env.PYTHONPATH);
             this.cache.set(settings.envFile, mergedVars);
         }
